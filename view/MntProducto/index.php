@@ -67,7 +67,8 @@
  
       </div><!-- br-sideleft-menu -->
 
-
+  
+  <button type="button" onclick="eliminar()" id="" class=""></button>
      
 
       <br>

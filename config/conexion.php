@@ -1,8 +1,10 @@
-<?php 
+<?php
 
-class Conectar{
+class Conectar
+{
     protected $dbh;
-    protected function Conexion(){
+    protected function Conexion()
+    {
         try {
             $conectar = $this->dbh = new PDO("mysql:local=localhost;dbname=crud2", "root", "");
             return $conectar;
@@ -12,10 +14,8 @@ class Conectar{
         }
     }
 
-    public function set_names(){
+    public function set_names()
+    {
         return $this->dbh->query("SET NAMES 'utf8'");
     }
 }
-
-
-?>
