@@ -6,7 +6,7 @@ class Producto extends Conectar
     {
         $conectar = parent::Conexion();
         parent::set_names();
-        $sql = "SELECT * FROM tm_producto WHERE est=1";
+        $sql = "SELECT * FROM tm_producto WHERE est=1;";
         $sql = $conectar->prepare($sql);
         $sql->execute();
         return $resultado = $sql->fetchAll();
