@@ -668,7 +668,6 @@
       <div class="br-pagebody">
         <div class="br-section-wrapper">
           <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Mantenimiento de producto</h6>
-
           <div class="table-wrapper">
             <table id="producto_data" class="table display responsive nowrap">
               <thead>
