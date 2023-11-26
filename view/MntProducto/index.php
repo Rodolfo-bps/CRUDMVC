@@ -668,6 +668,7 @@
       <div class="br-pagebody">
         <div class="br-section-wrapper">
           <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Mantenimiento de producto</h6>
+          <button id="btnnuevo" class="btn btn-outline-primary btn-block mg-b-10">Nuevo Producto</button>
           <div class="table-wrapper">
             <table id="producto_data" class="table display responsive nowrap">
               <thead>
@@ -685,13 +686,14 @@
 
 
 
-
         </div><!-- br-section-wrapper -->
       </div><!-- br-pagebody -->
 
 
   </div><!-- br-mainpanel -->
   <!-- ########## END: MAIN PANEL ########## -->
+
+  <?php require_once("modalmantenimiento.php"); ?>
 
   <script src="../../public/lib/jquery/jquery.js"></script>
   <script src="../../public/lib/popper.js/popper.js"></script>
@@ -718,6 +720,8 @@
   <script src="../../public/lib/select2/js/select2.min.js"></script>
 
   <script src="mntProducto.js"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

@@ -27,7 +27,7 @@ class Producto extends Conectar
     {
         $conectar = parent::Conexion();
         parent::set_names();
-        $sql = "UPDATE tm_prodcuto SET est=0, fech_elim=now() WHERE prod_id = ?";
+        $sql = "UPDATE tm_producto SET est=0, fech_elim=now() WHERE prod_id = ?";
         $sql = $conectar->prepare($sql);
         $sql->bindValue(1, $prod_id);
         $sql->execute();
