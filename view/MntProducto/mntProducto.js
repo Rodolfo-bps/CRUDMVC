@@ -59,14 +59,16 @@ $(document).ready(function () {
     }).DataTable();
 });
 
-function guardaryeditar(e) { 
+
+function guardaryeditar(e){
+
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
             confirmButton: 'btn btn-success',
             cancelButton: 'btn btn-danger'
         },
         buttonsStyling: false
-    })
+    });
 
     e.preventDefault();
 
@@ -77,26 +79,27 @@ function guardaryeditar(e) {
         type: "POST",
         data: formData,
         contentType: false,
-        processData: false, 
+        processData: false,
         success: function(datos){
-            $("#producto_form")[0].reset();
+
+            $('#producto_form')[0].reset();
             $("#modalmantenimiento").modal('hide');
-            $("#producto_data").DataTable().ajax.reload();
+            $('#producto_data').DataTable().ajax.reload();
 
-            swalWithBootstrapButtons.fire(
-                'Registrado!',
-                'Tu registro ha sido guradado :v',
-                'succes'
+            Swal.fire(
+                'Registro!',
+                'El se actualizo correctamente.',
+                'success'
             )
-
         }
-    })
- }
+    });
+}
+
 
 function editar(prod_id) {
     $('#mdltitulo').html('Editar Registro');
-   
-    $.post("../../controller/producto.php?op=mostrar",{prod_id:prod_id},function (data) {
+
+    $.post("../../controller/producto.php?op=mostrar", { prod_id: prod_id }, function (data) {
         data = JSON.parse(data);
         $('#prod_id').val(data.prod_id);
         $('#prod_nom').val(data.prod_nom);
