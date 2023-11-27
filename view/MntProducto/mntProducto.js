@@ -94,7 +94,15 @@ function guardaryeditar(e) {
  }
 
 function editar(prod_id) {
-    console.log(prod_id);
+    $('#mdltitulo').html('Editar Registro');
+   
+    $.post("../../controller/producto.php?op=mostrar",{prod_id:prod_id},function (data) {
+        data = JSON.parse(data);
+        $('#prod_id').val(data.prod_id);
+        $('#prod_nom').val(data.prod_nom);
+    });
+
+    $('#modalmantenimiento').modal('show');
 
 }
 

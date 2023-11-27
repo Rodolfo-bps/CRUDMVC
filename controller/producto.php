@@ -20,7 +20,6 @@ switch ($_GET['op']) {
             $sub_array[] = '<button type="button" onClick="eliminar(' . $row["prod_id"] . ');"  id="' . $row["prod_id"] . '" class="btn btn-outline-danger btn-icon"><div><i class="fa fa-trash"></i></div></button>';
             $data[] = $sub_array;
         }
-
         $results = array(
             "sEcho" => 1,
             "iTotalRecords" => count($data),
@@ -48,6 +47,7 @@ switch ($_GET['op']) {
                 $output['prod_id'] = $row['prod_id'];
                 $output['prod_nom'] = $row['prod_nom'];
             }
+            echo json_encode($output);
         }
         break;
 }
