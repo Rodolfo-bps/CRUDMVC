@@ -60,8 +60,7 @@ $(document).ready(function () {
 });
 
 
-function guardaryeditar(e){
-
+function guardaryeditar(e) {
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
             confirmButton: 'btn btn-success',
@@ -74,26 +73,31 @@ function guardaryeditar(e){
 
     var formData = new FormData($("#producto_form")[0]);
 
+    // Agregar el ID del producto como un campo oculto en el formulario
+    formData.append('prod_id', $('#prod_id').val());
+
     $.ajax({
         url: "../../controller/producto.php?op=guardaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
         processData: false,
-        success: function(datos){
-
+        success: function (datos) {
             $('#producto_form')[0].reset();
             $("#modalmantenimiento").modal('hide');
             $('#producto_data').DataTable().ajax.reload();
 
             Swal.fire(
                 'Registro!',
-                'El se actualizo correctamente.',
+                'El se actualizó correctamente.',
                 'success'
             )
+        }, error: function (xhr, status, error) {
+            console.error("Error en la solicitud AJAX:", xhr.responseText);
         }
     });
 }
+
 
 
 function editar(prod_id) {
@@ -103,6 +107,7 @@ function editar(prod_id) {
         data = JSON.parse(data);
         $('#prod_id').val(data.prod_id);
         $('#prod_nom').val(data.prod_nom);
+        $('#prod_desc').val(data.prod_desc);
     });
 
     $('#modalmantenimiento').modal('show');
@@ -137,7 +142,6 @@ function eliminar(prod_id) {
 
                 $('#producto_data').DataTable().ajax.reload();
                 swalWithBootstrapButtons.fire(
-
                     'Eliminado!',
                     'Tu registro ha sido eliminado.',
                     'success'
